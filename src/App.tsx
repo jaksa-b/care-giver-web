@@ -6,7 +6,7 @@ function App() {
   const [events, setEvents] = useState([]);
   const getEvents = () => {
     axios
-      .get("http://localhost:8000/events")
+      .get(`${process.env.REACT_APP_API_URL}/events`)
       .then((res) => {
         console.log(res);
         setEvents(res?.data?.events);
@@ -34,6 +34,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Care Giver</h1>
       {events.length !== 0 ? (
         <table>
           <thead>
